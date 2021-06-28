@@ -41,7 +41,7 @@ class ApplictionContextTests: XCTestCase {
         XCTAssertTrue(instance_0 === instance_1)
     }
 
-    func testDi() {
+    func testDiString() {
         // Given
         // When
         let authService = DI("IAuthService")
@@ -49,5 +49,14 @@ class ApplictionContextTests: XCTestCase {
         // Then
         XCTAssertTrue(authService is IAuthService)
     }
-}
 
+    func testAuthServiceHasCorrectDao() {
+        // Given
+        let authService = DI("IAuthService") as! AuthServiceImpl
+
+        // When
+
+        // Then
+        XCTAssertTrue(authService.daoUser is DaoUserImpl)
+    }
+}

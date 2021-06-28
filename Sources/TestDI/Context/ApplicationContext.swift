@@ -7,7 +7,7 @@
 
 import Foundation
 
-public func DI(_ name: String) -> Any {
+public func DI(_ name: String) -> IDependency {
     ApplicationContext.shared.getDependency(name)
 }
 
@@ -21,11 +21,11 @@ public class ApplicationContext {
 
     // MARK: - Properties
 
-    private var configuration: ApplicationConfiguration!
+    private var configuration: IApplicationConfiguration!
 
     // MARK: - Init
 
-    public static func initialize(_ configuration: ApplicationConfiguration) {
+    public static func initialize(_ configuration: IApplicationConfiguration) {
 
         guard instance == nil else { return }
 
@@ -35,7 +35,7 @@ public class ApplicationContext {
 
     // MARK: - Public
 
-    public func getDependency(_ name: String) -> Any {
+    public func getDependency(_ name: String) -> IDependency {
         configuration.getDependency(name)
     }
 }

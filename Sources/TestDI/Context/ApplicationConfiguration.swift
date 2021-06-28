@@ -7,19 +7,26 @@
 
 import Foundation
 
-public class ApplicationConfiguration {
+public protocol IApplicationConfiguration {
+
+    func getDependency(_ name: String) -> IDependency
+}
+
+class ApplicationConfiguration: IApplicationConfiguration {
 
     // MARK: - Properties
 
-    private var dependencies: [String: Any] = [:]
+    private var dependencies: [String: IDependency] = [:]
 
     // MARK: - Init
 
     public init() {
-        dependencies["IAuthService"] = AuthServiceImpl()
+        let daoUser = DaoUserImpl()
+        dependencies["IDaoUser"] = daoUser
+        dependencies["IAuthService"] = AuthServiceImpl(daoUser)
     }
 
-    public func getDependency(_ name: String) -> Any {
+    public func getDependency(_ name: String) -> IDependency {
         dependencies[name]!
     }
 }

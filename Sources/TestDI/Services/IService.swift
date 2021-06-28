@@ -7,4 +7,5 @@
 
 import Foundation
 
-public protocol IService {}
+public protocol IDependency {}
+public protocol IService: IDependency {}
