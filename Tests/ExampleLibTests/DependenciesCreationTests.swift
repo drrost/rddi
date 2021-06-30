@@ -27,5 +27,13 @@ class DependenciesCreationTests: BaseTestCase {
         // Then
         XCTAssertTrue(dao_0 !== dao_1)
     }
-}
 
+    func testCreateTrackService() {
+        // Given
+
+        // When
+        let service = DI("IServiceTrack") as! IServiceTrack
+
+        // Then
+    }
+}

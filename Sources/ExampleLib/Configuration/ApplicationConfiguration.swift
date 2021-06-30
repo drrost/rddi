@@ -21,5 +21,7 @@ class ApplicationConfiguration: IApplicationConfiguration {
         let daoUserFactory = DaoUserFactory()
         factories["IDaoUser"] = daoUserFactory
         factories["IAuthService"] = AuthServiceFactory(daoUserFactory)
+
+        factories["IServiceTrack"] = ServiceTrackFactory()
     }
 }
