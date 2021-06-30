@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ApplicationContext
+import RDDI
 
 class SomeDataSource {
 

@@ -8,23 +8,22 @@ let package = Package(
         .library(
             name: "RDDI",
             targets: ["RDDI"]),
-
         .library(
-            name: "ApplicationContext",
-            targets: ["ApplicationContext"]),
+            name: "ExampleLib",
+            targets: ["ExampleLib"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
             name: "RDDI",
-            dependencies: ["ApplicationContext"]),
+            dependencies: []),
         .testTarget(
-            name: "RDDITests",
-            dependencies: ["RDDI"]),
+            name: "ExampleLibTests",
+            dependencies: ["ExampleLib"]),
 
         .target(
-            name: "ApplicationContext",
-            dependencies: []),
+            name: "ExampleLib",
+            dependencies: ["RDDI"]),
     ]
 )

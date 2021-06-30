@@ -6,9 +6,9 @@
 //
 
 import XCTest
-import ApplicationContext
+import RDDI
 
-@testable import RDDI
+@testable import ExampleLib
 
 class BaseTestCase: XCTestCase {
 

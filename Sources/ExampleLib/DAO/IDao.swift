@@ -6,6 +6,6 @@
 //
 
 import Foundation
-import ApplicationContext
+import RDDI
 
 public protocol IDao: IDependency {}

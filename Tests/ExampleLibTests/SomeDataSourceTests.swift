@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import RDDI
+@testable import ExampleLib
 
 class SomeDataSourceTests: BaseTestCase {
 
@@ -57,4 +57,3 @@ class SomeDataSourceTests: BaseTestCase {
         XCTAssertEqual(0, tasks.count)
     }
 }
-
