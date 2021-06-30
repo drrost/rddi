@@ -39,5 +39,6 @@ class DependenciesCreationTests: BaseTestCase {
         XCTAssertTrue(favorites.count > 0)
         let track = favorites[0]
         XCTAssertEqual(track.title, "One day in haven")
+        XCTAssertEqual(777, track.size)
     }
 }

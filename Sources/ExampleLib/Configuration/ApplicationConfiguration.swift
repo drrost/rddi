@@ -23,5 +23,6 @@ class ApplicationConfiguration: IApplicationConfiguration {
 
         factories["IAuthService"] = AuthServiceFactory()
         factories["IServiceTrack"] = ServiceTrackFactory()
+        factories["IServiceFile"] = ServiceFileFactory()
     }
 }

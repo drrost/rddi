@@ -19,6 +19,7 @@ class ServiceTrackImpl: IServiceTrack {
     // MARK: - Properties
 
     let daoTrack = DI("IDaoTrack") as! IDaoTrack
+    let serviceFile = DI("IServiceFile") as! IServiceFile
 
     var name: String = "IServiceTrack"
 
@@ -28,19 +29,24 @@ class ServiceTrackImpl: IServiceTrack {
 
     func getFavorites() throws -> [Track] {
 
-        let trackDaoModels = try daoTrack.getAll()
+        let favoriteDaoModels = try daoTrack.getAll().filter { $0.isFavorite }
 
-        return trackDaoModels.filter { $0.isFavorite}.map { Track($0) }
+        return try favoriteDaoModels.map {
+            let file = try serviceFile.get($0.id)
+            return Track($0, file.size)
+        }
     }
 }
 
 extension Track {
 
-    convenience init(_ trackDaoModel: TrackDaoModel) {
+    convenience init(_ trackDaoModel: TrackDaoModel, _ size: Int) {
+        
         self.init(
             trackDaoModel.id,
             trackDaoModel.title ?? "<Unknown>",
             trackDaoModel.duration,
-            trackDaoModel.artist ?? "<Unknown>")
+            trackDaoModel.artist ?? "<Unknown>",
+            size)
     }
 }
