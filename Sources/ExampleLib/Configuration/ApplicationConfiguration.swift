@@ -18,11 +18,10 @@ class ApplicationConfiguration: IApplicationConfiguration {
 
     public init() {
 
-        let daoUserFactory = DaoUserFactory()
-        factories["IDaoUser"] = daoUserFactory
-        factories["IAuthService"] = AuthServiceFactory(daoUserFactory)
-
-        factories["IServiceTrack"] = ServiceTrackFactory()
+        factories["IDaoUser"] = DaoUserFactory()
         factories["IDaoTrack"] = DaoTrackFactory()
+
+        factories["IAuthService"] = AuthServiceFactory()
+        factories["IServiceTrack"] = ServiceTrackFactory()
     }
 }

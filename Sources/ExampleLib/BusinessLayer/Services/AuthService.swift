@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RDDI
 
 public protocol IAuthService: IService {
 
@@ -18,11 +19,7 @@ class AuthServiceImpl: IAuthService {
 
     // MARK: - Properties
 
-    let daoUser: IDaoUser
-
-    init(_ daoUser: IDaoUser) {
-        self.daoUser = daoUser
-    }
+    let daoUser = DI("IDaoUser") as! IDaoUser
 
     // MARK: -
 
