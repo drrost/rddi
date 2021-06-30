@@ -23,5 +23,6 @@ class ApplicationConfiguration: IApplicationConfiguration {
         factories["IAuthService"] = AuthServiceFactory(daoUserFactory)
 
         factories["IServiceTrack"] = ServiceTrackFactory()
+        factories["IDaoTrack"] = DaoTrackFactory()
     }
 }
