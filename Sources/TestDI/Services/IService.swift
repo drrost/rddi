@@ -6,6 +6,6 @@
 //
 
 import Foundation
+import ApplicationContext
 
-public protocol IDependency {}
 public protocol IService: IDependency {}

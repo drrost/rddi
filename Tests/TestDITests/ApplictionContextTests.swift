@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import ApplicationContext
 
 @testable import TestDI
 

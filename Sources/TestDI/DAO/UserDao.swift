@@ -33,7 +33,11 @@ public protocol IDaoUser: IDao {
 
 class DaoUserImpl: IDaoUser {
 
-    let users: [User] = []
+    var name: String { "IDaoUser" }
+
+    let users: [User] = [
+        User("Correct", "User", "correct_user", "correct_password")
+    ]
 
     public func allUsers() throws -> [User] {
         users

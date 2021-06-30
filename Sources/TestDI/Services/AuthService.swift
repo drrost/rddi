@@ -14,6 +14,8 @@ public protocol IAuthService: IService {
 
 class AuthServiceImpl: IAuthService {
 
+    var name: String { "IAuthService" }
+
     // MARK: - Properties
 
     let daoUser: IDaoUser
@@ -25,6 +27,8 @@ class AuthServiceImpl: IAuthService {
     // MARK: -
 
     func validate(_ login: String, _ password: String) -> Bool {
-        true
+        try! daoUser.allUsers().first {
+            $0.login == login && $0.password == password
+        } != nil
     }
 }

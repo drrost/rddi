@@ -8,15 +8,23 @@ let package = Package(
         .library(
             name: "TestDI",
             targets: ["TestDI"]),
+
+        .library(
+            name: "ApplicationContext",
+            targets: ["ApplicationContext"]),
     ],
     dependencies: [
     ],
     targets: [
         .target(
             name: "TestDI",
-            dependencies: []),
+            dependencies: ["ApplicationContext"]),
         .testTarget(
             name: "TestDITests",
             dependencies: ["TestDI"]),
+
+        .target(
+            name: "ApplicationContext",
+            dependencies: []),
     ]
 )

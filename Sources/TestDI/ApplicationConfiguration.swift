@@ -6,11 +6,7 @@
 //
 
 import Foundation
-
-public protocol IApplicationConfiguration {
-
-    func getDependency(_ name: String) -> IDependency
-}
+import ApplicationContext
 
 class ApplicationConfiguration: IApplicationConfiguration {
 
