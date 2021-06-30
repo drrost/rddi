@@ -1,3 +1,3 @@
-# TestDI
+# RDDI
 
-A description of this package.
+A Dependency Injection Swift framework.

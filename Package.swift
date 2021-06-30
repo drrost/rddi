@@ -3,11 +3,11 @@
 import PackageDescription
 
 let package = Package(
-    name: "TestDI",
+    name: "RDDI",
     products: [
         .library(
-            name: "TestDI",
-            targets: ["TestDI"]),
+            name: "RDDI",
+            targets: ["RDDI"]),
 
         .library(
             name: "ApplicationContext",
@@ -17,11 +17,11 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "TestDI",
+            name: "RDDI",
             dependencies: ["ApplicationContext"]),
         .testTarget(
-            name: "TestDITests",
-            dependencies: ["TestDI"]),
+            name: "RDDITests",
+            dependencies: ["RDDI"]),
 
         .target(
             name: "ApplicationContext",
