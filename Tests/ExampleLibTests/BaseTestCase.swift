@@ -23,14 +23,4 @@ class BaseTestCase: XCTestCase {
         configuration = ApplicationConfiguration()
         ApplicationContext.initialize(configuration)
     }
-
-    // MARK: - Init tests
-
-    func testCreation() {
-        // Given
-        // When
-        // Then
-    }
-
 }
-

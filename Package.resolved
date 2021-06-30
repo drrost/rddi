@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "RDError",
+        "repositoryURL": "git@github.com:drrost/swift-error.git",
+        "state": {
+          "branch": null,
+          "revision": "093f2e8a484b601b119add0c0798e4ab190fbf1a",
+          "version": "1.0.4"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

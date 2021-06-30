@@ -13,11 +13,15 @@ let package = Package(
             targets: ["ExampleLib"]),
     ],
     dependencies: [
+        .package(
+            name: "RDError",
+            url: "git@github.com:drrost/swift-error.git",
+            .exact("1.0.4")),
     ],
     targets: [
         .target(
             name: "RDDI",
-            dependencies: []),
+            dependencies: ["RDError"]),
         .testTarget(
             name: "ExampleLibTests",
             dependencies: ["ExampleLib"]),

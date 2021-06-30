@@ -8,7 +8,7 @@
 import Foundation
 
 public func DI(_ name: String) -> IDependency {
-    ApplicationContext.shared.getDependency(name)
+    try! ApplicationContext.shared.getDependency(name)
 }
 
 public class ApplicationContext {
@@ -35,7 +35,7 @@ public class ApplicationContext {
 
     // MARK: - Public
 
-    public func getDependency(_ name: String) -> IDependency {
-        configuration.getDependency(name)
+    public func getDependency(_ name: String) throws -> IDependency {
+        try configuration.getDependency(name)
     }
 }
