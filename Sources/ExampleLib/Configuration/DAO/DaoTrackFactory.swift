@@ -10,8 +10,6 @@ import RDDI
 
 class DaoTrackFactory: IDependencyFactory {
 
-    var isSingleton: Bool = false
-
     func getDependency() throws -> IDependency {
         DaoTrackImpl()
     }

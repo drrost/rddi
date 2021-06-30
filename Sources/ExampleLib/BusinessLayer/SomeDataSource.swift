@@ -12,7 +12,7 @@ class SomeDataSource {
 
     // MARK: - Dependencies
 
-    private let authService = DI("IAuthService") as! IAuthService
+    private let ServiceAuth = DI("IServiceAuth") as! IServiceAuth
 
     // MARK: - Properties
 
@@ -28,7 +28,7 @@ class SomeDataSource {
 
     func getAllTasks() -> [String] {
 
-        guard authService.validate(login, password) else {
+        guard ServiceAuth.validate(login, password) else {
             return []
         }
 

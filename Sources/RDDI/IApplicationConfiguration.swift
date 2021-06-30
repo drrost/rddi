@@ -21,6 +21,11 @@ public protocol IDependencyFactory {
     func getDependency() throws -> IDependency
 }
 
+public extension IDependencyFactory {
+
+    var isSingleton: Bool { false }
+}
+
 public protocol IApplicationConfiguration {
 
     var factories: [String: IDependencyFactory] { get }

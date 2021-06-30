@@ -10,8 +10,6 @@ import RDDI
 
 class ServiceTrackFactory: IDependencyFactory {
 
-    var isSingleton: Bool = false
-
     func getDependency() throws -> IDependency {
         ServiceTrackImpl()
     }

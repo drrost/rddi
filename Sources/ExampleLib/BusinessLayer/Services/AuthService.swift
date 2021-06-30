@@ -1,5 +1,5 @@
 //
-//  AuthService.swift
+//  ServiceAuth.swift
 //
 //
 //  Created by Rostyslav Druzhchenko on 28.06.2021.
@@ -8,14 +8,14 @@
 import Foundation
 import RDDI
 
-public protocol IAuthService: IService {
+public protocol IServiceAuth: IService {
 
     func validate(_ login: String, _ password: String) -> Bool
 }
 
-class AuthServiceImpl: IAuthService {
+class ServiceAuthImpl: IServiceAuth {
 
-    var name: String { "IAuthService" }
+    var name: String { "IServiceAuth" }
 
     // MARK: - Properties
 
