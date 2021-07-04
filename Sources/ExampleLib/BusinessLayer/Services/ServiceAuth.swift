@@ -19,7 +19,7 @@ class ServiceAuthImpl: IServiceAuth {
 
     // MARK: - Properties
 
-    let daoUser = DI("IDaoUser") as! IDaoUser
+    let daoUser: IDaoUser = DI("IDaoUser")
 
     // MARK: -
 

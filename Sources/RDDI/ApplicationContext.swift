@@ -7,8 +7,8 @@
 
 import Foundation
 
-public func DI(_ name: String) -> IDependency {
-    try! ApplicationContext.shared.getDependency(name)
+public func DI<T>(_ name: String) -> T {
+    try! ApplicationContext.shared.getDependency(name) as! T
 }
 
 public class ApplicationContext {

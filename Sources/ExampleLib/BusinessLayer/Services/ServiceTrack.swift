@@ -18,8 +18,8 @@ class ServiceTrackImpl: IServiceTrack {
 
     // MARK: - Properties
 
-    let daoTrack = DI("IDaoTrack") as! IDaoTrack
-    let serviceFile = DI("IServiceFile") as! IServiceFile
+    let daoTrack: IDaoTrack = DI("IDaoTrack")
+    let serviceFile: IServiceFile = DI("IServiceFile")
 
     var name: String = "IServiceTrack"
 

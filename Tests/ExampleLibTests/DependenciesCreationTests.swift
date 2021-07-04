@@ -21,8 +21,8 @@ class DependenciesCreationTests: BaseTestCase {
         let id = "IDaoUser"
 
         // When
-        let dao_0 = DI(id) as! DaoUserImpl
-        let dao_1 = DI(id) as! DaoUserImpl
+        let dao_0: DaoUserImpl = DI(id)
+        let dao_1: DaoUserImpl = DI(id)
 
         // Then
         XCTAssertTrue(dao_0 !== dao_1)
@@ -32,7 +32,7 @@ class DependenciesCreationTests: BaseTestCase {
         // Given
 
         // When
-        let service = DI("IServiceTrack") as! IServiceTrack
+        let service: IServiceTrack = DI("IServiceTrack")
         let favorites = try! service.getFavorites()
 
         // Then
