@@ -38,4 +38,8 @@ public class ApplicationContext {
     public func getDependency(_ name: String) throws -> IDependency {
         try configuration.getDependency(name)
     }
+
+    public func add(_ name: String, _ dependency: IDependencyFactory) {
+        configuration.add(name, dependency)
+    }
 }

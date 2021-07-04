@@ -31,6 +31,8 @@ public protocol IApplicationConfiguration {
     var factories: [String: IDependencyFactory] { get }
 
     func getDependency(_ name: String) throws -> IDependency
+
+    func add(_ name: String, _ dependency: IDependencyFactory)
 }
 
 public extension IApplicationConfiguration {

@@ -25,4 +25,8 @@ class ApplicationConfiguration: IApplicationConfiguration {
         factories["IServiceTrack"] = ServiceTrackFactory()
         factories["IServiceFile"] = ServiceFileFactory()
     }
+
+    func add(_ name: String, _ dependency: IDependencyFactory) {
+        factories[name] = dependency
+    }
 }

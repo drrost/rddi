@@ -60,4 +60,19 @@ class ApplictionContextTests: XCTestCase {
         // Then
         XCTAssertTrue(serviceAuth.daoUser is DaoUserImpl)
     }
+
+    func testAddDependency() {
+        // Given
+        let dependencyId = "IServiceAuth_ZZ"
+        var serviceAuth: IServiceAuth? =
+            try? ApplicationContext.shared.getDependency(dependencyId) as? IServiceAuth
+        XCTAssertNil(serviceAuth)
+
+        // When
+        ApplicationContext.shared.add(dependencyId, ServiceAuthFactory())
+        serviceAuth = DI(dependencyId)
+
+        // Then
+        XCTAssertNotNil(serviceAuth)
+    }
 }
