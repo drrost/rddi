@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import RDError
 
 public func DI<T>(_ name: String) -> T {
-    try! ApplicationContext.shared.getDependency(name) as! T
+    try! ApplicationContext.shared.getDependency(name, "default") as! T
 }
 
 public class ApplicationContext {
@@ -21,7 +22,7 @@ public class ApplicationContext {
 
     // MARK: - Properties
 
-    private var configuration: IApplicationConfiguration!
+    private var configurations: [IApplicationConfiguration] = []
 
     // MARK: - Init
 
@@ -30,16 +31,33 @@ public class ApplicationContext {
         guard instance == nil else { return }
 
         instance = ApplicationContext()
-        instance.configuration = configuration
+        instance.configurations.append(configuration)
     }
 
     // MARK: - Public
 
-    public func getDependency(_ name: String) throws -> IDependency {
-        try configuration.getDependency(name)
+    public func getDependency(
+        _ dependencyName: String,
+        _ configurationName: String) throws -> IDependency {
+
+        let configuration = configurations.first { $0.name == configurationName }
+        if configuration == nil {
+            throw RDError("Can't find configuration named: \"\(configurationName)\"")
+        }
+
+        return try configuration!.getDependency(dependencyName)
     }
 
-    public func add(_ name: String, _ dependency: IDependencyFactory) {
-        configuration.add(name, dependency)
+    public func add(
+        _ dependencyName: String,
+        _ dependencyFactory: IDependencyFactory,
+        _ configurationName: String = "default") {
+
+        var configuration = configurations.first { $0.name == configurationName }
+        if configuration == nil {
+            configuration = ApplicationConfiguration(configurationName)
+        }
+
+        configuration?.add(dependencyName, dependencyFactory)
     }
 }

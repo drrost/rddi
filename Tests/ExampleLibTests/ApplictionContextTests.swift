@@ -65,7 +65,8 @@ class ApplictionContextTests: XCTestCase {
         // Given
         let dependencyId = "IServiceAuth_ZZ"
         var serviceAuth: IServiceAuth? =
-            try? ApplicationContext.shared.getDependency(dependencyId) as? IServiceAuth
+            try? ApplicationContext.shared.getDependency(
+                dependencyId, "default") as? IServiceAuth
         XCTAssertNil(serviceAuth)
 
         // When

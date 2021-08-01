@@ -28,6 +28,8 @@ public extension IDependencyFactory {
 
 public protocol IApplicationConfiguration {
 
+    var name: String { get }
+
     var factories: [String: IDependencyFactory] { get }
 
     func getDependency(_ name: String) throws -> IDependency
@@ -44,5 +46,26 @@ public extension IApplicationConfiguration {
         } else {
             throw DIError("Can't find a factory for name: \(name)")
         }
+    }
+}
+
+class ApplicationConfiguration: IApplicationConfiguration {
+
+    // MARK: -  IApplicationConfiguration
+
+    var name: String = "default"
+
+    var factories: [String : IDependencyFactory] = [:]
+
+    func add(_ name: String, _ dependency: IDependencyFactory) {
+        factories[name] = dependency
+    }
+
+    // MARK: - Init
+
+    private init() {}
+
+    init(_ name: String) {
+        self.name = name
     }
 }

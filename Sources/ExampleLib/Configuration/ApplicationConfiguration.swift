@@ -10,6 +10,8 @@ import RDDI
 
 class ApplicationConfiguration: IApplicationConfiguration {
 
+    var name: String = "default"
+
     // MARK: - Properties
 
     var factories: [String: IDependencyFactory] = [:]
