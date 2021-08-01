@@ -8,7 +8,7 @@
 import XCTest
 import RDDI
 
-@testable import ExampleLib
+@testable import RDDI
 
 class BaseTestCase: XCTestCase {
 

@@ -7,10 +7,7 @@ let package = Package(
     products: [
         .library(
             name: "RDDI",
-            targets: ["RDDI"]),
-        .library(
-            name: "ExampleLib",
-            targets: ["ExampleLib"]),
+            targets: ["RDDI"])
     ],
     dependencies: [
         .package(
@@ -24,10 +21,6 @@ let package = Package(
             dependencies: ["RDError"]),
         .testTarget(
             name: "ExampleLibTests",
-            dependencies: ["ExampleLib"]),
-
-        .target(
-            name: "ExampleLib",
             dependencies: ["RDDI"]),
     ]
 )

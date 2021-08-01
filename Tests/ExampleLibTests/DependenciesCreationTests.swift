@@ -10,7 +10,7 @@ import RDDI
 
 import XCTest
 
-@testable import ExampleLib
+@testable import RDDI
 
 class DependenciesCreationTests: BaseTestCase {
 

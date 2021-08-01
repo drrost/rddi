@@ -7,7 +7,7 @@
 
 import XCTest
 
-@testable import ExampleLib
+@testable import RDDI
 
 class SomeDataSourceTests: BaseTestCase {
 
