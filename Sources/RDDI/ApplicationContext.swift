@@ -8,8 +8,8 @@
 import Foundation
 import RDError
 
-public func DI<T>(_ name: String) -> T {
-    try! ApplicationContext.shared.getDependency(name, "default") as! T
+public func DI<T>(_ name: String, _ configurationName: String) -> T {
+    try! ApplicationContext.shared.getDependency(name, configurationName) as! T
 }
 
 public class ApplicationContext {
@@ -56,6 +56,7 @@ public class ApplicationContext {
         var configuration = configurations.first { $0.name == configurationName }
         if configuration == nil {
             configuration = ApplicationConfiguration(configurationName)
+            configurations.append(configuration!)
         }
 
         configuration?.add(dependencyName, dependencyFactory)
